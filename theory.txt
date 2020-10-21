@@ -1,0 +1,60 @@
+Git Basics
+
+Getting a Git repository
+    git init (importa el repo) + la opción git remote add permite importar un repositorio remoto
+    git clone <url> (opción para clonar el repositorio, hace una copia idéntica)
+        git clone <url> new_name (clona el repositorio pero le asigna el nuevo nombre)
+
+Recording changes to repository
+    git status (chckea los archivos que están siendo rastreados y los que no)
+        git status  (muestra de forma corta el seguimiento de los archivos, es sinónimo de git status --short)
+    git add (rastrear nuevos archivos)
+    git commit(confirmación de nuevos archivos guardados en el momento en que se dio git add)
+        git commit -a -m (commando que permite guardar y confirmar en un solo paso, pero lo hace para todos los archivos que estén
+        pendientes de ser rastreados en git status)
+    .gitignore file (filtra archivos con determinados patrones para que sea ignorados de las trazabilidad en el git status)
+        --> se pueden encontrar plantillas de .gitignore files en https://github.com/github/gitignore
+    git diff (muestra los cambios en un archivo después de ser rastreado con git add)
+    git rm (remover archivos del directorio de trabajo)
+    git mv file_from file_to (permite cambiar el nombre de los archivos)
+    git log (control de versión de cambios)
+        git log --stat (ver las modificaciones en modo resumido, indica número de archivos y número de lineas que han sido 
+        modificadas)
+        git log -pretty=oneline (opción para modificar formato de salida, --pretty=short, --pretty=full,
+        --pretty=fuller, --pretty=format:"%h - %an, %ar : %s")
+
+Undoing things
+    git commit --amend (guarda el mensaje de commit anterior para nuevos cambios realizados en un nuevo archivo guardado). e.g:
+        $ git commit -m 'initial commit'
+        $ git add forgotten_file
+        $ git commit --amend
+
+Unstaging a staged file
+    git reset HEAD <file> (permite deshacer los cambios de un archivo preparado)
+    git checkout -- <file> (deshace los cambios en un archivo)
+
+Showing your remotes
+    git remote -v (permite ver los repositorios remotos)
+
+Adding Remote Repositories
+    git remote add origin <url> (opción para importar el repositorio)
+    git fetch [remote-name] (trae todos los datos de un repositorio remoto sin modificar el actual)
+
+Pushing to your Remotes Repositories
+    git push origin master
+
+Inspecting a Remote
+    git remote show [nombre-remoto](origin) (lista la URL del repositorio remoto y la información del
+    rastreo de ramas)
+
+Renaming and removing Remotes
+    git remote rename old_name_repo new_name_repo (renombrar un repositorio)
+    git remote rm name_repo (eliminar un repositorio)
+
+
+Alias
+    $ git config --global alias.co checkout
+    $ git config --global alias.br branch
+    $ git config --global alias.ci commit
+    $ git config --global alias.st status
+    $ git config --global alias.last 'log -1 HEAD' (ver la última confirmación)
