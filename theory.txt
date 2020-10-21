@@ -48,7 +48,10 @@ Inspecting a Remote
     rastreo de ramas)
 
 Renaming and removing Remotes
-    git remote rename old_name_repo new_name_repo (renombrar un repositorio)
+    git remote rename old_name_repo new_name_repo (renombrar un repositorio, solo sirve para renombrar repo local. Ej : origin)
+        para renombrar un repo remoto:
+            git remote remove origin
+            git remote add origin <url_nueva>
     git remote rm name_repo (eliminar un repositorio)
 
 
